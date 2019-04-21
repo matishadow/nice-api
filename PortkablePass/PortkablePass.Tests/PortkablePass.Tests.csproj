@@ -58,20 +58,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TestFixtures\CharacterSpaceGeneratorTest.cs" />
-    <Compile Include="Mocks\Uft8ConverterMockCreator.cs" />
-    <Compile Include="TestFixtures\HmacGeneratorResolverTest.cs" />
-    <Compile Include="TestFixtures\PasswordTruncatorTest.cs" />
-    <Compile Include="TestFixtures\HmacSha512GeneratorTest.cs" />
-    <Compile Include="TestFixtures\HmacSha256GeneratorTest.cs" />
-    <Compile Include="TestFixtures\HmacSha1GeneratorTest.cs" />
-    <Compile Include="TestFixtures\HmacToArbitraryEncodingConverterTest.cs" />
-    <Compile Include="TestFixtures\UppercaseCharacterSpaceGeneratorTest.cs" />
-    <Compile Include="TestFixtures\DigitCharacterSpaceGeneratorTest.cs" />
-    <Compile Include="TestFixtures\SpecialCharacterSpaceGeneratorTest.cs" />
-    <Compile Include="TestFixtures\LowercaseCharacterSpaceGeneratorTest.cs" />
-    <Compile Include="TestFixtures\Sha1HasherTest.cs" />
-    <Compile Include="TestFixtures\Utf8ConverterTest.cs" />
     <Compile Include="TestFixtures\ExampleTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -96,6 +82,9 @@
       <Project>{3e27f4b3-1db5-4833-af15-ca05c119fbc1}</Project>
       <Name>PortkablePass.Interfaces</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Mocks" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
