@@ -15,22 +15,27 @@ namespace NiceAPI.Web
     {
         public static void BuildContainer()
         {
-            IEnumerable<Assembly> portkablePassAssemblies = GetPortkablePassAssemblies();            
+            IEnumerable<Assembly> assemblies = GetAssemblies();            
         
             var builder = new ContainerBuilder();
 
             RegisterMvcTypes(builder);
-            RegisterPortkablePassTypes(portkablePassAssemblies, builder);
+            RegisterPortkablePassTypes(assemblies, builder);
 
             IContainer container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
         }
 
-        private static IEnumerable<Assembly> GetPortkablePassAssemblies()
+        private static IEnumerable<Assembly> GetAssemblies()
         {
+            string projectName = Assembly.GetCallingAssembly().GetName().Name;
+            int dotLocation = projectName.IndexOf(".", StringComparison.Ordinal);
+            if (dotLocation > 0)
+                projectName = projectName.Substring(0, dotLocation);
+            
             List<Assembly> assemblies = BuildManager.GetReferencedAssemblies()
                 .Cast<Assembly>()
-                .Where(assembly => assembly.FullName.StartsWith("PortkablePass"))
+                .Where(assembly => assembly.FullName.StartsWith(projectName))
                 .ToList();
 
             return assemblies;
